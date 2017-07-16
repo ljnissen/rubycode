@@ -1,0 +1,5 @@
+p [1,2,3,4].include?(5)
+p Array.new(4, "Hi")
+p (3 + 2)
+p (false && true)
+p (false || true)
