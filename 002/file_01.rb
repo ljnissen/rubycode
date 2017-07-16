@@ -6,3 +6,9 @@ end
 
 p(Add10.new + 5)
 
+def Fixnum
+	def +(other)
+		self - other
+	end
+end
+
