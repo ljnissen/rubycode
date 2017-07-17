@@ -27,3 +27,4 @@ end
 print_message PutsText.new, "Text"
 print_message UpcaseText.new, "uppercase text"
 print_number PutsNumber.new, (3.56 + 1.27)
+print_message PutsNumber.new, (3.56 + 1.27)
