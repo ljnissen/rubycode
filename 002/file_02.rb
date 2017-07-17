@@ -7,3 +7,4 @@ class RandomList
 end
 
 p(RandomList.new[5])
+

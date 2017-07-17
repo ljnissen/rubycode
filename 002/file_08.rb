@@ -4,7 +4,4 @@ class Add10
 	end
 end
 
-p(Add10.new + 5)
-
-
-
+p (Add10.new + 2)
