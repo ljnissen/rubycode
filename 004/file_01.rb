@@ -1,6 +1,6 @@
-def do_call(object)
+def you_called(object)
 	object.call
 end
 
-a_proc = lambda {puts "This is a Proc"}
-do_call a_proc
+a_proc = lambda {puts "I'm a Proc"}
+you_called a_proc
