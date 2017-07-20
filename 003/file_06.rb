@@ -27,3 +27,11 @@ end
 c = Coordinates.new(10, 20)
 
 c2 = Coordinates.new *c
+
+x, y = c
+
+puts x
+
+puts y
+
+[c, c2].each { |(x, y)| puts "Coordinates: #{x}, #{y}" }
