@@ -1,8 +1,6 @@
-class Counting # good: defined class correctly
+number = 1
 
-	def initialize # good: defined method correctly
-		@number = number # improve how to initialize integer
-	end
+class Counting # good: defined class correctly
 
 	def n_fakultet
 		puts "Enter integer between 0 and 10, please: " # improve input
@@ -12,5 +10,5 @@ class Counting # good: defined class correctly
 end
 
 f = Counting.new # improve calling function inside class
-f.n_fakultet
+puts f.n_fakultet 
 # puts Counting.new(n_fakultet) # improve calling correct function
