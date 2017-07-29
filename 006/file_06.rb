@@ -37,9 +37,3 @@ end
 f = MyNumber.new
 f.n
 
-	def factorial_reduce(m)
-		(2..m).reduce(1, :*)
-	end
-
-	m = 7
-	puts m
