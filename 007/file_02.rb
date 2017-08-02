@@ -1,5 +1,3 @@
-
-
 print "Please enter an integer: "
 
 def array_setup(element)
