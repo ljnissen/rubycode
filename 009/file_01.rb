@@ -1,5 +1,9 @@
 print "Please enter your identifier: "
-	identifier = gets
+	
+	def words(identifier)
+		return identifier.split.map {|word| word.downcase}
+		
+	end
 
-print "Input as array: ", identifier.to_a
+print "The string as an array: ", words(gets)
 
