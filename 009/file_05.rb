@@ -3,7 +3,7 @@ print "Identifier: "
 identifier = Array.new
 	
 	def words(identifier)
-		identifier.each_char.to_a {|word| words.upcase}
+		identifier.each_char.to_a {|word| words}
 	end
 
 		if words(gets).first.match /^[a-zA-Z]+$/i
