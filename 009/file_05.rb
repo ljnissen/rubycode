@@ -1,7 +1,14 @@
 print "Identifier: "
+
+identifier = Array.new
 	
 	def words(identifier)
-		return identifier.each_char.to_a {|word| words.downcase}
+		identifier.each_char.to_a {|word| words.upcase}
 	end
 
-	print "The identifier is valid", words(gets)
+		if words(gets).first.include? "/^[a-zA-Z]+$/i"
+			print "The identifier is valid."
+		else
+			print "The identifier is not valid."
+		end
+
