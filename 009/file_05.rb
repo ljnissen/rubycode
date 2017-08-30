@@ -6,7 +6,7 @@ identifier = Array.new
 		identifier.each_char.to_a {|word| words.upcase}
 	end
 
-		if words(gets).first.include? "/^[a-zA-Z]+$/i"
+		if words(gets).first.match /^[a-zA-Z]+$/i
 			print "The identifier is valid."
 		else
 			print "The identifier is not valid."
