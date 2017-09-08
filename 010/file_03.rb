@@ -13,4 +13,8 @@ raw_data = ['Alabaster - Birmingham 24 miles',
 			'Mobile - Montgomery 169 miles',
 			'Montgomery - Tuscaloosa 134 miles']
 
+towns = [], distances = []
 
+def dist
+	raw_data.for_each {|dist|}
+end
