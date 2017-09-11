@@ -13,8 +13,20 @@ raw_data = ['Alabaster - Birmingham 24 miles',
 			'Mobile - Montgomery 169 miles',
 			'Montgomery - Tuscaloosa 134 miles']
 
-towns = [], distances = []
+towns = [] 
+distances = []
 
-def dist
-	raw_data.for_each {|dist|}
-end
+
+raw_data.each_with_index {|x, index| 
+	x = x.split(' '),
+	y = x[0].split('-')
+	towns = index(y[0]) < 0 && towns.push(y[0])
+}
+		
+
+
+
+print towns
+print distances
+print x
+print y 
