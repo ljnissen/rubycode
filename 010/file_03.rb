@@ -17,18 +17,11 @@ towns = []
 distances = []
 
 
-raw_data.each_with_index {|x, index|
-	raw_data.each_with_index {|y, index| 
+raw_data.each_with_index {|x, y, index|
+#raw_data.each_with_index {|y, index| 
 	x = x.split(' ')
 	y = x[0].split('-')
 	towns = y.index(y[0]) < 0 && towns.push(y[0])
 	puts towns
-}}
-		
-
-
-
-print towns
-print distances
-print x
-print y 
+}#}
+		 
