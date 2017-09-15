@@ -1,3 +1,6 @@
+class Graph
+	Vertex = Struct.new(:name, :neighbors, :dist, :prev)
+
 print "Please enter city #1: "
 	city_1 = gets
 print "Please enter city #2: "
@@ -13,21 +16,25 @@ raw_data = ['Alabaster - Birmingham 24 miles',
 			'Mobile - Montgomery 169 miles',
 			'Montgomery - Tuscaloosa 134 miles']
 
-towns = [] 
-distances = []
 
 
-raw_data.each do |x, y|
-	x = x.split(' ')
-	y = x[0].split('-')
-	#towns.index(y[0]) < 0 && towns.push(y[0])
-	#index(y[1]) < 0 && towns.push(y[1])
-	#distances.push([y[1],y[0],x[1]/1])
-	puts x
-	puts
-	puts y
-	puts
+	def initialize(graph)
+		@vertices = Hash.new { |h, k| h[k] = Vertex.new(k,[],Float::INFINITY) }
+		@edges = {}
+		raw_data.each do |x, y, dist|
+			x = x.split(' ')
+			y = x[0].split('-')
+			@vertices[x].neighbors << y
+			@vertices[y].neighbors << x
+			@edges[[x, y]] = @edges [[y, x]] = dist
+			puts @vertices[x]
+			puts @vertices[y]
+			puts x
+			puts
+			puts y
+		end
+		@source = nil
+	end
 end
-
 
 		 
