@@ -33,7 +33,21 @@ raw_data = ['Alabaster - Birmingham 24 miles',
 			puts
 			puts y
 		end
-		@source = nil
+		@d_source = nil
+	end
+
+	def dijkstra(source)
+		return if @d_source = source
+		q = @vertices.values
+		q.each do |v|
+			v.dist = Float::INFINITY
+			v.prev = nil
+		end
+		@vertices[source].dist = 0
+
+		until q.empty?
+			u = q.min_by {|vertex| vertex.dist }
+		end 
 	end
 end
 
