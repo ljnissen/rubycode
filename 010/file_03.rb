@@ -47,6 +47,7 @@ raw_data = ['Alabaster - Birmingham 24 miles',
 
 		until q.empty?
 			u = q.min_by {|vertex| vertex.dist }
+			break if u.dist == Float::INFINITY
 		end 
 	end
 end
