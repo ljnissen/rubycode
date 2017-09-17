@@ -48,6 +48,17 @@ raw_data = ['Alabaster - Birmingham 24 miles',
 		until q.empty?
 			u = q.min_by {|vertex| vertex.dist }
 			break if u.dist == Float::INFINITY
+			q.delete(u)
+			u.neighbors.each do |v|
+				vv = @vertices[v]
+				if q.includes?(vv)
+					alt = u.dist + @edges[[u.name, v]]
+					if alt < vv.dist
+						vv.dist = alt
+						vv.prev = u.name
+					end
+				end
+			end
 		end 
 	end
 end
