@@ -60,12 +60,12 @@ g = Graph.new([ [:a, :b, 6],
                 [:b, :c, 10],
                 [:b, :d, 15],
                 [:c, :d, 11],
-                [:c, :f, 4],
+                [:c, :f, 4,],
                 [:d, :e, 7],
                 [:e, :f, 10],
               ])
  
-start, stop = :a, :e
+start, stop = :a, :f
 path, dist = g.shortest_path(start, stop)
 puts "shortest path from #{start} to #{stop} has cost #{dist}:"
 puts path.join(" -> ")

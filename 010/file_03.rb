@@ -1,37 +1,15 @@
-class Graph
+class Raw_data
 	Vertex = Struct.new(:name, :neighbors, :dist, :prev)
-
-print "Please enter city #1: "
-	city_1 = gets
-print "Please enter city #2: "
-	city_2 = gets
-
-raw_data = ['Alabaster - Birmingham 24 miles', 
-			'Alabaster - Montgomery 71 miles',
-			'Birmingham - Huntsville 103 miles',
-			'Birmingham - Tuscaloosa 59 miles',
-			'Demopolis - Mobile 141 miles',
-			'Demopolis - Montgomery 101 miles',
-			'Demopolis - Tuscaloosa 65 miles',
-			'Mobile - Montgomery 169 miles',
-			'Montgomery - Tuscaloosa 134 miles']
 
 
 
 	def initialize(graph)
 		@vertices = Hash.new { |h, k| h[k] = Vertex.new(k,[],Float::INFINITY) }
 		@edges = {}
-		raw_data.each do |x, y, dist|
-			x = x.split(' ')
-			y = x[0].split('-')
+		graph.each do |(x, y, dist)|
 			@vertices[x].neighbors << y
 			@vertices[y].neighbors << x
 			@edges[[x, y]] = @edges [[y, x]] = dist
-			puts @vertices[x]
-			puts @vertices[y]
-			puts x
-			puts
-			puts y
 		end
 		@d_source = nil
 	end
@@ -59,8 +37,47 @@ raw_data = ['Alabaster - Birmingham 24 miles',
 					end
 				end
 			end
-		end 
+		end
+		@d_source = source 
 	end
+	
+
+
+	def shortest_path(source, target)
+		dijkstra(source)
+		path = []
+		u = target
+		while u
+			path.unshift(u)
+			u = @vertices[u].prev
+		end
+		return path, @vertices[target].dist
+	end
+
+	def to_s
+		"#<% s vertices = %p edges = %p>" % [self.class.name, @vertices.values, @edges]
+	end
+
 end
 
-		 
+g = Raw_data.new([
+			[:Alabaster, :Birmingham, 24], 
+			[:Alabaster, :Montgomery, 71],
+			[:Birmingham,  :Huntsville, 103],
+			[:Birmingham, :Tuscaloosa, 59],
+			[:Demopolis, :Mobile, 141],
+			[:Demopolis, :Montgomery, 101],
+			[:Demopolis, :Tuscaloosa, 65],
+			[:Mobile,  :Montgomery, 169],
+			[:Montgomery, :Tuscaloosa, 134]
+											])
+	print "Please enter city #1: "
+		city_1 = gets.to_sym
+	print "Please enter city #2: "
+		city_2 = gets.to_sym
+	
+
+
+	path, dist = g.shortest_path(city_1, city_2)	
+	puts "Shortest path from #{city_1} to #{city_2} is #{dist} miles"
+	puts path.join(" -> ")
