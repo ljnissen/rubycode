@@ -4,6 +4,11 @@ end
 print "Would you like to [a]dd, [m]ultiply, [d]ivide or [s]ubtract? "
 response = gets.chomp
 
+if response.empty?
+		puts "Hmmmm...it doesn't seem that you've entered any numbers..."
+		abort
+end
+
 case response[0].downcase
 	when 'a'
 		puts "Which numbers would you like to add?"
@@ -21,6 +26,8 @@ case response[0].downcase
 		puts "Which numbers would you like to subtract?"
 		operator = :-
 end
+
+
 
 answer = get_int_values.inject(operator)
 puts "The answer is...#{ answer }"
