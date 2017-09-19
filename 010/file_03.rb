@@ -15,7 +15,7 @@ class Raw_data
 	end
 
 	def dijkstra(source)
-		return if @d_source = source
+		return if @d_source == source
 		q = @vertices.values
 		q.each do |v|
 			v.dist = Float::INFINITY
@@ -55,7 +55,7 @@ class Raw_data
 	end
 
 	def to_s
-		"#<% s vertices = %p edges = %p>" % [self.class.name, @vertices.values, @edges]
+		"#<%s vertices = %p edges = %p>" % [self.class.name, @vertices.values, @edges]
 	end
 
 end
