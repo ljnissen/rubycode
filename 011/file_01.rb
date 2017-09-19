@@ -5,7 +5,7 @@ print "Would you like to [a]dd, [m]ultiply, [d]ivide or [s]ubtract? "
 response = gets.chomp
 
 if response.empty?
-		puts "Hmmmm...it doesn't seem that you've entered any numbers..."
+		puts "Hmmmm...it doesn't seem that you've entered any letter..."
 		abort
 end
 
